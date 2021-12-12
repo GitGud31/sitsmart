@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
 
+import '/core/infoscreen.dart';
+
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class CustomAppBar extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(height: MediaQuery.of(context).padding.top),
+        SizedBox(height: Get.mediaQuery.padding.top),
         Stack(
           alignment: Alignment.center,
           children: [
@@ -29,7 +31,9 @@ class CustomAppBar extends StatelessWidget {
                 icon: Icon(Icons.info,
                     color: Get.theme.iconTheme.color,
                     size: Get.theme.iconTheme.size),
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(InformationScreen.routeName);
+                },
               ),
             )
           ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/core/infoscreen.dart';
 import '/core/homescreen.dart';
 
 void main() {
@@ -31,6 +32,11 @@ class SitSmart extends StatelessWidget {
           ),
         ),
       ),
+      getPages: [
+        GetPage(name: HomeScreen.routeName, page: () => HomeScreen()),
+        GetPage(
+            name: InformationScreen.routeName, page: () => InformationScreen())
+      ],
       home: HomeScreen(),
     );
   }
