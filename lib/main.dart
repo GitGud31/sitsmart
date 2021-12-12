@@ -18,9 +18,11 @@ class SitSmart extends StatelessWidget {
       title: 'sitsmart',
       theme: ThemeData(
         primaryColor: Colors.black,
-        backgroundColor: Colors.black,
+        scaffoldBackgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        highlightColor: Colors.blueGrey,
         iconTheme: const IconThemeData(
-          color: Colors.blueGrey,
+          color: Colors.black,
           size: 30,
         ),
         textTheme: const TextTheme(
@@ -28,6 +30,7 @@ class SitSmart extends StatelessWidget {
             fontFamily: 'Magilio',
             fontSize: 45,
             fontWeight: FontWeight.bold,
+            color: Colors.white,
             letterSpacing: 1,
           ),
         ),
