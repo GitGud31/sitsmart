@@ -2,20 +2,74 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/components/animatedsitsmartappbar.dart';
+import '/components/timer.dart';
+
+import '/models/timermodel.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
   static const routeName = '/';
+  var controller = Get.put(TimerModel());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Get.theme.scaffoldBackgroundColor,
-        body: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: [
-            SitSmartAppBar(),
+        body: Stack(
+          children: [
+            Container(
+              height: Get.size.height,
+              width: Get.size.width,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      'assets/images/homescreenbg.png',
+                    ),
+                    fit: BoxFit.cover),
+              ),
+            ),
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                const SitSmartAppBar(),
+                SliverToBoxAdapter(
+                  child: TimerCard(),
+                )
+              ],
+            ),
           ],
+        ),
+        floatingActionButton: Container(
+          height: 64,
+          width: 64,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                const Color(0xffbacfe0).withOpacity(0.6),
+                const Color(0xffe9dbd8).withOpacity(0.7),
+              ],
+            ),
+          ),
+          child: GetBuilder<TimerModel>(builder: (controller) {
+            return FloatingActionButton(
+              onPressed: () {
+                controller.changeTimerState();
+              },
+              child: Icon(
+                  controller.state == TimerState.pause
+                      ? Icons.play_arrow_rounded
+                      : Icons.stop_rounded,
+                  color: Colors.black,
+                  size: 55),
+              tooltip: controller.state == TimerState.pause ? 'play' : 'pause',
+              backgroundColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              elevation: 0,
+            );
+          }),
         ),
       ),
     );

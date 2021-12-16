@@ -17,16 +17,12 @@ class _AnimatedSliverAppBarState extends State<AnimatedSliverAppBar>
   @override
   void initState() {
     controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 2500));
+        vsync: this, duration: const Duration(milliseconds: 4300));
     animation = Tween<double>(begin: Get.size.width, end: 0).animate(
         CurvedAnimation(
             parent: controller as AnimationController, curve: Curves.linear));
     controller?.forward();
-    Future.delayed(const Duration(milliseconds: 3210)).then((value) {
-      if (controller?.isCompleted == true) {
-        controller?.stop();
-      }
-    });
+
     super.initState();
   }
 
@@ -39,6 +35,7 @@ class _AnimatedSliverAppBarState extends State<AnimatedSliverAppBar>
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      elevation: 0,
       backgroundColor: Get.theme.backgroundColor,
       flexibleSpace: Stack(
         alignment: Alignment.center,
@@ -69,7 +66,7 @@ class _AnimatedSliverAppBarState extends State<AnimatedSliverAppBar>
           color: Get.theme.iconTheme.color,
           size: Get.theme.iconTheme.size,
         ),
-        tooltip: 'Back',
+        tooltip: 'back',
       ),
     );
   }

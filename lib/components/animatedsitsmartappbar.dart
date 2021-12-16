@@ -1,4 +1,3 @@
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -53,7 +52,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
       flexibleSpace: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset('assets/images/sitsmartbanner.png'),
+          Image.asset('assets/images/3.png'),
           AnimatedBuilder(
             animation: movementController as AnimationController,
             builder: (ctx, child) {
@@ -80,6 +79,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
           onPressed: () {
             Get.toNamed(InformationScreen.routeName);
           },
+          tooltip: 'about us',
         )
       ],
     );
