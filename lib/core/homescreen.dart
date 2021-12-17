@@ -57,6 +57,11 @@ class HomeScreen extends StatelessWidget {
             return FloatingActionButton(
               onPressed: () {
                 controller.changeTimerState();
+                if (controller.state == TimerState.play) {
+                  controller.startTimer();
+                } else {
+                  controller.stopTimer();
+                }
               },
               child: Icon(
                   controller.state == TimerState.pause
