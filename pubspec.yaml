@@ -38,6 +38,7 @@ dependencies:
   sliver_tools: ^0.2.5
   gradient_widgets: ^0.6.0
   lottie: ^1.2.1
+  transparent_image: ^2.0.0
 
 dev_dependencies:
   flutter_test:

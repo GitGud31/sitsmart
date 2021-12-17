@@ -1,12 +1,11 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 
 enum TimerState { play, pause }
 
 class TimerModel extends GetxController {
-  int limit = 70;
+  int limit = 3000;
   RxInt secondsPassBy = 0.obs;
   RxInt hour = 0.obs;
   RxInt minutes = 0.obs;
@@ -14,10 +13,9 @@ class TimerModel extends GetxController {
   TimerState state = TimerState.pause;
   Timer? timer;
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (secondsPassBy.value == limit) {
         state = TimerState.pause;
-        // stopTimer(); //un-comment this after the app is complete!
         update();
         timer.cancel();
       } else {

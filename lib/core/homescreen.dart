@@ -22,10 +22,17 @@ class HomeScreen extends StatelessWidget {
               width: Get.size.width,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(
-                      'assets/images/homescreenbg.png',
-                    ),
-                    fit: BoxFit.cover),
+                  image: AssetImage('assets/images/1.png'),
+                  fit: BoxFit.cover,
+                ),
+                // gradient: LinearGradient(
+                //   begin: Alignment.topCenter,
+                //   end: Alignment.bottomCenter,
+                //   colors: [
+                //     Colors.indigo,
+                //     Colors.blue,
+                //   ],
+                // ),
               ),
             ),
             CustomScrollView(

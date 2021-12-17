@@ -52,7 +52,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
       flexibleSpace: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset('assets/images/3.png'),
+          Image.asset('assets/images/3.png', fit: BoxFit.contain),
           AnimatedBuilder(
             animation: movementController as AnimationController,
             builder: (ctx, child) {
@@ -71,7 +71,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
           ),
         ],
       ),
-      expandedHeight: 230,
+      expandedHeight: 200,
       actions: [
         IconButton(
           icon: Icon(Icons.info_outline_rounded,
