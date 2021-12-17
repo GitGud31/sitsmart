@@ -8,7 +8,7 @@ class TimerModel extends GetxController {
   int limit = 3000;
   RxInt secondsPassBy = 0.obs;
   RxInt hour = 0.obs;
-  RxInt minutes = 0.obs;
+  RxInt minutes = 50.obs;
   RxInt seconds = 0.obs;
   TimerState state = TimerState.pause;
   Timer? timer;
@@ -16,18 +16,19 @@ class TimerModel extends GetxController {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (secondsPassBy.value == limit) {
         state = TimerState.pause;
+        stopTimer();
         update();
-        timer.cancel();
       } else {
-        seconds.value = (seconds + 1) % 60 as int;
+        seconds.value = seconds.value - 1;
+        if (seconds.value == -1) {
+          minutes.value = minutes.value - 1;
+          if (minutes.value == -1) {
+            hour.value = hour.value - 1;
+            minutes.value = 59;
+          }
+          seconds.value = 59;
+        }
         secondsPassBy++;
-        if (seconds.value == 0) {
-          minutes.value += 1;
-        }
-        if (minutes.value == 60) {
-          minutes.value = 0;
-          hour.value += 1;
-        }
         update();
       }
     });
@@ -36,14 +37,14 @@ class TimerModel extends GetxController {
   void stopTimer() {
     secondsPassBy.value = 0;
     hour.value = 0;
-    minutes.value = 0;
+    minutes.value = 50;
     seconds.value = 0;
     state = TimerState.pause;
     timer?.cancel();
   }
 
   double getValue() {
-    return 1 - (((minutes.value * 60) + seconds.value) / limit);
+    return (((minutes.value * 60) + seconds.value) / limit);
   }
 
   void changeTimerState() {
