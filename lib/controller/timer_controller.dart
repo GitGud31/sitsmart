@@ -39,7 +39,7 @@ class TimerController extends GetxController {
     state = TimerState.pause;
     secondsPassBy.value = 0;
     hour.value = 0;
-    minutes.value = 1; //TODO: reset to value to 50
+    minutes.value = 1; //TODO: reset to value to 50. Setting other values than 50, reveals a display bug.
     seconds.value = 0;
     timer?.cancel();
   }

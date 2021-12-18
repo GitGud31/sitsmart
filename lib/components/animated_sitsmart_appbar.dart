@@ -73,7 +73,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
                 );
               },
               child: AnimatedBuilder(
-                animation: sizeController!, //TODO: no need for casting.
+                animation: sizeController!, //TODO: no need for casting. Rather should use the '!' for null check.
                 builder: (ctx, child) {
                   return Lottie.asset('assets/animations/plane.json',
                       height: sizeAnimation!.value);

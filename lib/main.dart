@@ -7,6 +7,7 @@ import 'core/info_screen.dart';
 import 'core/home_screen.dart';
 
 void main() {
+  //TODO: Inject controller here.
   Get.put(TimerController());
 
   runApp(
