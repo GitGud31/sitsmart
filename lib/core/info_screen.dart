@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/components/animatedsliverappbar.dart';
+import '../components/animated_sliver_appbar.dart';
 
 class InformationScreen extends StatelessWidget {
   InformationScreen({Key? key}) : super(key: key);
-  static const routeName = "/sitsmart-info";
+  
 
   TextStyle lightStyle = const TextStyle(
     color: Colors.black,

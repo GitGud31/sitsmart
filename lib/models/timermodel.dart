@@ -44,7 +44,7 @@ class TimerModel extends GetxController {
   void stopTimer() {
     secondsPassBy.value = 0;
     hour.value = 0;
-    minutes.value = 50;
+    minutes.value = 1; //TODO: reset to value to 50
     seconds.value = 0;
     state = TimerState.pause;
     timer?.cancel();

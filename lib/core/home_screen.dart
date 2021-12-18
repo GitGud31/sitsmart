@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/components/animatedsitsmartappbar.dart';
+import '../components/animated_sitsmart_appbar.dart';
 import '/components/timer.dart';
 
 import '/models/timermodel.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  static const routeName = '/';
+
   var controller = Get.put(TimerModel());
   @override
   Widget build(BuildContext context) {

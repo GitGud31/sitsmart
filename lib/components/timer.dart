@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import '/models/timermodel.dart';
 
 class TimerCard extends StatelessWidget {
-  double value = 0;
-
-  TimerCard({Key? key}) : super(key: key);
+  const TimerCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

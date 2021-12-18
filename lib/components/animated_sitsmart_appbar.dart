@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sitsmart/utils/routes_name.dart';
 
-import '/core/infoscreen.dart';
+import '../core/info_screen.dart';
 
 class SitSmartAppBar extends StatefulWidget {
   const SitSmartAppBar({Key? key}) : super(key: key);
@@ -89,7 +90,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
                     color: Get.theme.iconTheme.color,
                     size: Get.theme.iconTheme.size),
                 onPressed: () {
-                  Get.toNamed(InformationScreen.routeName);
+                  Get.toNamed(RoutesName.sitsmartInfo);
                 },
                 tooltip: 'about us',
               ),
