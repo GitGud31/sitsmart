@@ -12,6 +12,13 @@ class TimerModel extends GetxController {
   RxInt seconds = 0.obs;
   TimerState state = TimerState.pause;
   Timer? timer;
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+  }
+
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (secondsPassBy.value == limit) {

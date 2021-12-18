@@ -49,39 +49,55 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: Get.theme.backgroundColor,
-      flexibleSpace: Stack(
-        alignment: Alignment.center,
-        children: [
-          Image.asset('assets/images/3.png', fit: BoxFit.contain),
-          AnimatedBuilder(
-            animation: movementController as AnimationController,
-            builder: (ctx, child) {
-              return Positioned(
-                right: animation!.value,
-                child: child as Widget,
-              );
-            },
-            child: AnimatedBuilder(
-              animation: sizeController as AnimationController,
-              builder: (ctx, child) {
-                return Lottie.asset('assets/animations/plane.json',
-                    height: sizeAnimation!.value);
-              },
-            ),
+      flexibleSpace: Container(
+        height: 200,
+        width: Get.size.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/3.png'),
+            fit: BoxFit.contain,
           ),
-        ],
+        ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              height: 200,
+              width: Get.size.width,
+            ),
+            AnimatedBuilder(
+              animation: movementController as AnimationController,
+              builder: (ctx, child) {
+                return Positioned(
+                  right: animation!.value,
+                  child: child as Widget,
+                );
+              },
+              child: AnimatedBuilder(
+                animation: sizeController as AnimationController,
+                builder: (ctx, child) {
+                  return Lottie.asset('assets/animations/plane.json',
+                      height: sizeAnimation!.value);
+                },
+              ),
+            ),
+            Positioned(
+              top: 5,
+              right: 5,
+              child: IconButton(
+                icon: Icon(Icons.info_outline_rounded,
+                    color: Get.theme.iconTheme.color,
+                    size: Get.theme.iconTheme.size),
+                onPressed: () {
+                  Get.toNamed(InformationScreen.routeName);
+                },
+                tooltip: 'about us',
+              ),
+            )
+          ],
+        ),
       ),
       expandedHeight: 200,
-      actions: [
-        IconButton(
-          icon: Icon(Icons.info_outline_rounded,
-              color: Get.theme.iconTheme.color, size: Get.theme.iconTheme.size),
-          onPressed: () {
-            Get.toNamed(InformationScreen.routeName);
-          },
-          tooltip: 'about us',
-        )
-      ],
     );
   }
 }

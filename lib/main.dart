@@ -38,7 +38,7 @@ class SitSmart extends StatelessWidget {
       getPages: [
         GetPage(name: HomeScreen.routeName, page: () => HomeScreen()),
         GetPage(
-            name: InformationScreen.routeName, page: () => InformationScreen())
+            name: InformationScreen.routeName, page: () => InformationScreen()),
       ],
       home: HomeScreen(),
     );

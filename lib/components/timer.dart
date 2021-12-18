@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sitsmart/models/timermodel.dart';
+import '/models/timermodel.dart';
 
 class TimerCard extends StatelessWidget {
   double value = 0;

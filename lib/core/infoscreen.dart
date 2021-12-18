@@ -25,34 +25,35 @@ class InformationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Container(
-              height: Get.size.height,
-              width: Get.size.width,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.blue,
-                    Colors.white,
-                  ],
-                ),
-                // image: DecorationImage(
-                //     image: AssetImage('assets/images/aboutusbg.png'),
-                //     fit: BoxFit.cover),
+    return Scaffold(
+      body: Column(
+        children: [
+          SizedBox(
+            height: Get.mediaQuery.padding.top,
+          ),
+          Container(
+            height: Get.size.height - Get.mediaQuery.padding.top,
+            width: Get.size.width,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.blue,
+                  Colors.white,
+                ],
               ),
+              // image: DecorationImage(
+              //     image: AssetImage('assets/images/aboutusbg.png'),
+              //     fit: BoxFit.cover),
             ),
-            CustomScrollView(
+            child: CustomScrollView(
               physics: const BouncingScrollPhysics(),
               slivers: [
                 const AnimatedSliverAppBar(),
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RichText(
                       textAlign: TextAlign.justify,
                       text: TextSpan(
@@ -76,8 +77,8 @@ class InformationScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

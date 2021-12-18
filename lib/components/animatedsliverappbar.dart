@@ -37,37 +37,52 @@ class _AnimatedSliverAppBarState extends State<AnimatedSliverAppBar>
     return SliverAppBar(
       elevation: 0,
       backgroundColor: Get.theme.backgroundColor,
-      flexibleSpace: Stack(
-        alignment: Alignment.center,
-        children: [
-          SizedBox(width: Get.size.width),
-          Image.asset('assets/images/aboutusbanner.png'),
-          AnimatedBuilder(
-            animation: controller as AnimationController,
-            builder: (ctx, child) {
-              return Positioned(
-                right: animation!.value,
-                child: child as Widget,
-              );
-            },
-            child: Lottie.asset(
-              'assets/animations/walking.json',
-              height: 150,
-            ),
-          ),
-        ],
-      ),
-      expandedHeight: 230,
-      automaticallyImplyLeading: false,
-      leading: IconButton(
-        onPressed: () => Get.back(),
-        icon: Icon(
-          Icons.arrow_back_ios_new_rounded,
-          color: Get.theme.iconTheme.color,
-          size: Get.theme.iconTheme.size,
+      flexibleSpace: Container(
+        height: 200,
+        width: Get.size.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/aboutusbanner.png'),
+              fit: BoxFit.cover),
         ),
-        tooltip: 'back',
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            SizedBox(
+              height: 200,
+              width: Get.size.width,
+            ),
+            AnimatedBuilder(
+              animation: controller as AnimationController,
+              builder: (ctx, child) {
+                return Positioned(
+                  right: animation!.value,
+                  child: child as Widget,
+                );
+              },
+              child: Lottie.asset(
+                'assets/animations/walking.json',
+                height: 150,
+              ),
+            ),
+            Positioned(
+              top: 5,
+              left: 5,
+              child: IconButton(
+                onPressed: () => Get.back(),
+                icon: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: Get.theme.iconTheme.color,
+                  size: Get.theme.iconTheme.size,
+                ),
+                tooltip: 'back',
+              ),
+            )
+          ],
+        ),
       ),
+      expandedHeight: 200,
+      automaticallyImplyLeading: false,
     );
   }
 }
