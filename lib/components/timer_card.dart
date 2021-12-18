@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/models/timermodel.dart';
+import 'package:sitsmart/controller/timer_controller.dart';
 
 class TimerCard extends StatelessWidget {
   const TimerCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<TimerModel>(
+    return GetBuilder<TimerController>(
       builder: (controller) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),

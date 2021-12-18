@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sitsmart/utils/routes_name.dart';
 
-import '../core/info_screen.dart';
-
 class SitSmartAppBar extends StatefulWidget {
   const SitSmartAppBar({Key? key}) : super(key: key);
 

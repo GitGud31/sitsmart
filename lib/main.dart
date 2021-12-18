@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sitsmart/utils/routes_name.dart';
 
+import 'controller/timer_controller.dart';
 import 'core/info_screen.dart';
 import 'core/home_screen.dart';
 
 void main() {
+  Get.put(TimerController());
+
   runApp(
     const SitSmart(),
   );
@@ -39,10 +42,10 @@ class SitSmart extends StatelessWidget {
         ),
       ),
       getPages: [
-        GetPage(name: RoutesName.root, page: () => HomeScreen()),
-        GetPage(name: RoutesName.sitsmartInfo, page: () => InformationScreen()),
+        GetPage(name: RoutesName.root, page: () => const HomeScreen()),
+        GetPage(name: RoutesName.sitsmartInfo, page: () => const InformationScreen()),
       ],
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

@@ -4,27 +4,26 @@ import 'package:get/get.dart';
 import '../components/animated_sliver_appbar.dart';
 
 class InformationScreen extends StatelessWidget {
-  InformationScreen({Key? key}) : super(key: key);
-  
-
-  TextStyle lightStyle = const TextStyle(
-    color: Colors.black,
-    fontSize: 20,
-    fontWeight: FontWeight.w500,
-    letterSpacing: 1,
-    fontFamily: 'Product Sans',
-  );
-
-  TextStyle heavyStyle = const TextStyle(
-    color: Colors.black,
-    fontSize: 22,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 1,
-    fontFamily: 'Product Sans',
-  );
+  const InformationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    const lightStyle = TextStyle(
+      color: Colors.black,
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
+      letterSpacing: 1,
+      fontFamily: 'Product Sans',
+    );
+
+    const heavyStyle = TextStyle(
+      color: Colors.black,
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 1,
+      fontFamily: 'Product Sans',
+    );
+
     return Scaffold(
       body: Column(
         children: [
@@ -56,7 +55,7 @@ class InformationScreen extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RichText(
                       textAlign: TextAlign.justify,
-                      text: TextSpan(
+                      text: const TextSpan(
                         children: <TextSpan>[
                           TextSpan(text: 'sitsmart', style: heavyStyle),
                           TextSpan(
