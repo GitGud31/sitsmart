@@ -5,11 +5,9 @@ import 'package:sitsmart/controller/timer_controller.dart';
 import '../components/animated_sitsmart_appbar.dart';
 import '../components/timer_card.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  //var controller = Get.put(TimerController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +16,8 @@ class HomeScreen extends StatelessWidget {
         children: [
           SizedBox(height: Get.mediaQuery.padding.top),
           Container(
-            height: Get.size.height - Get.mediaQuery.padding.top,
-            width: Get.size.width,
+            height: Get.height - Get.mediaQuery.padding.top,
+            width: Get.width,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/1.png'),

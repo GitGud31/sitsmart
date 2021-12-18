@@ -60,9 +60,9 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 200,
-              width: Get.size.width,
+              width: Get.width,
             ),
             AnimatedBuilder(
               animation: movementController as AnimationController,
@@ -73,7 +73,7 @@ class _SitSmartAppBarState extends State<SitSmartAppBar>
                 );
               },
               child: AnimatedBuilder(
-                animation: sizeController as AnimationController,
+                animation: sizeController!, //TODO: no need for casting.
                 builder: (ctx, child) {
                   return Lottie.asset('assets/animations/plane.json',
                       height: sizeAnimation!.value);
